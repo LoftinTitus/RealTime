@@ -6,7 +6,7 @@ RealTime is a lightweight Chrome extension that displays real-time financial mar
 
 ## Features
 
-- ✅ Real-time stock prices (via free APIs)  
+- ✅ Real-time stock prices
 - ✅ Latest financial news headlines  
 - ✅ Simple, responsive popup UI  
 - ✅ Customizable favorite stocks
@@ -18,8 +18,8 @@ RealTime is a lightweight Chrome extension that displays real-time financial mar
 - **HTML + CSS** — Popup UI  
 - **Vanilla JavaScript (ES6)** — Logic & API calls  
 - **Manifest V3** — Chrome extension framework  
-- **Alpha Vantage / Finnhub APIs** — Market data & news (free tiers)  
-- **Chrome Storage API** — Save user preferences (optional)  
+- **Alpha Vantage** — Market data & news
+- **Chrome Storage API** — Save user preferences
 
 ---
 
