@@ -1,1 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinWatch</title>
+    <link rel="stylesheet" href="popup.css">
+    <script src="popup.js" defer></script>
+</head>
+
+<body>
+  <div class="popup-container">
+    <nav class="tabs">
+      <button class="tab-btn active" data-tab="market">Market Data</button>
+      <button class="tab-btn" data-tab="news">News</button>
+      <button class="tab-btn" data-tab="settings">Settings</button>
+    </nav>
+
+    <section id="market" class="tab-content active">
+      <!-- Market data content here -->
+      <h2>Market Data</h2>
+      <p id="stockPrice">Loading stock price...</p>
+    </section>
+
+    <section id="news" class="tab-content">
+      <!-- News content here -->
+      <h2>News</h2>
+      <ul id="newsList"><li>Loading news...</li></ul>
+    </section>
+
+    <section id="settings" class="tab-content">
+      <!-- Settings content here -->
+      <h2>Settings & Preferences</h2>
+      <p>Settings go here</p>
+    </section>
+  </div>
+
+  <script src="popup.js" defer></script>
+</body>
+
+</html>
 

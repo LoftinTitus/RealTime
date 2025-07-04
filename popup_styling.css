@@ -1,1 +1,110 @@
+/* popup.css */
 
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #222;
+  min-width: 300px;
+  min-height: 350px;
+}
+
+.popup-container {
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  text-align: center;
+  color: #004080;
+}
+
+h2 {
+  font-size: 1.2rem;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #004080;
+  padding-bottom: 5px;
+}
+
+.stock-section p#stockPrice {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #008000;
+}
+
+.news-section ul {
+  list-style-type: none;
+  padding-left: 0;
+  max-height: 150px;
+  overflow-y: auto;
+  margin: 0;
+}
+
+.news-section ul li {
+  padding: 6px 0;
+  border-bottom: 1px solid #ddd;
+  font-size: 0.9rem;
+  cursor: pointer;
+  color: #004080;
+}
+
+.news-section ul li:hover {
+  background-color: #e0e7ff;
+}
+
+input#stockInput {
+  width: 70%;
+  padding: 6px 8px;
+  font-size: 1rem;
+  margin-right: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+button#updateStockButton, button#actionButton {
+  background-color: #004080;
+  color: white;
+  border: none;
+  padding: 7px 14px;
+  font-size: 1rem;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button#updateStockButton:hover, button#actionButton:hover {
+  background-color: #002952;
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 10px;
+  background: #f0f0f0;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  color: #004080;
+  transition: background-color 0.3s ease;
+}
+
+.tab-btn.active {
+  background: #004080;
+  color: white;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}

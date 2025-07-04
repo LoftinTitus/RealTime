@@ -1,1 +1,27 @@
-
+{
+  "manifest_version": 3,
+  "name": "FinWatch - Financial Market Tracker",
+  "description": "View real-time stock prices and financial news in a convenient popup window.",
+  "version": "1.0",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://www.alphavantage.co/*",
+    "https://finnhub.io/*",
+    "https://newsapi.org/*"
+  ]
+}
