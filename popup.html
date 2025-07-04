@@ -20,6 +20,12 @@
       <!-- Market data content here -->
       <h2>Market Data</h2>
       <p id="stockPrice">Loading stock price...</p>
+    <p><strong>Symbol:</strong> <span id="stockSymbol">AAPL</span></p>
+  <p><strong>Current Price:</strong> <span id="stockPrice">$--</span></p>
+  <p><strong>High:</strong> <span id="highPrice">$--</span></p>
+  <p><strong>Low:</strong> <span id="lowPrice">$--</span></p>
+  <p><strong>Previous Close:</strong> <span id="prevClose">$--</span></p>
+  <p><strong>Change %:</strong> <span id="changePercent">--</span></p>
     </section>
 
     <section id="news" class="tab-content">
@@ -29,9 +35,15 @@
     </section>
 
     <section id="settings" class="tab-content">
-      <!-- Settings content here -->
-      <h2>Settings & Preferences</h2>
-      <p>Settings go here</p>
+       <h2>Settings & Preferences</h2>
+
+  <label for="stockInput">Tracked Stock Symbol:</label>
+  <input type="text" id="stockInput" placeholder="e.g. TSLA">
+  <button id="updateStockButton">Update</button>
+
+  <p style="margin-top: 10px; font-size: 0.9rem;">
+    Your preferred stock symbol will be saved for next time.
+  </p>
     </section>
   </div>
 

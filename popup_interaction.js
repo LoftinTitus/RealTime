@@ -46,8 +46,26 @@ async function fetchFinancialNews(symbol) {
   }
 }
 
+
 document.addEventListener('DOMContentLoaded', () => {
+  // Tab buttons
+  const tabButtons = document.querySelectorAll('.tab-btn');
+  const tabContents = document.querySelectorAll('.tab-content');
+
+  tabButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Remove active from all buttons and contents
+      tabButtons.forEach(b => b.classList.remove('active'));
+      tabContents.forEach(c => c.classList.remove('active'));
+
+      // Add active to clicked button and matching content
+      btn.classList.add('active');
+      const tab = btn.getAttribute('data-tab');
+      document.getElementById(tab).classList.add('active');
+    });
+  });
+
+  // Your existing code to fetch and display data can stay here
   fetchStockPrice(stockSymbol);
   fetchFinancialNews(stockSymbol);
 });
-
