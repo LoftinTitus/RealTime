@@ -17,8 +17,12 @@
     }
   },
   "permissions": [
-    "storage"
+    "storage",
+    "tabs"
   ],
+  "background": {
+    "service_worker": "background.js"
+  },
   "host_permissions": [
     "https://www.alphavantage.co/*",
     "https://finnhub.io/*",

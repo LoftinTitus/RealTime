@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FinWatch</title>
-    <link rel="stylesheet" href="popup.css">
-    <script src="popup.js" defer></script>
+    <link rel="stylesheet" href="popup_styling.css">
+    <script src="popup_interaction.js" defer></script>
 </head>
 
 <body>
@@ -17,37 +17,71 @@
     </nav>
 
     <section id="market" class="tab-content active">
-      <!-- Market data content here -->
       <h2>Market Data</h2>
-      <p id="stockPrice">Loading stock price...</p>
-    <p><strong>Symbol:</strong> <span id="stockSymbol">AAPL</span></p>
-  <p><strong>Current Price:</strong> <span id="stockPrice">$--</span></p>
-  <p><strong>High:</strong> <span id="highPrice">$--</span></p>
-  <p><strong>Low:</strong> <span id="lowPrice">$--</span></p>
-  <p><strong>Previous Close:</strong> <span id="prevClose">$--</span></p>
-  <p><strong>Change %:</strong> <span id="changePercent">--</span></p>
+      <div class="stock-info">
+        <p><strong>Symbol:</strong> <span id="stockSymbol">Loading...</span></p>
+        <p><strong>Current Price:</strong> <span id="currentPrice">$--</span></p>
+        <p><strong>Change:</strong> <span id="priceChange">$--</span></p>
+        <p><strong>Change %:</strong> <span id="changePercent">--%</span></p>
+        <p><strong>High:</strong> <span id="highPrice">$--</span></p>
+        <p><strong>Low:</strong> <span id="lowPrice">$--</span></p>
+        <p><strong>Previous Close:</strong> <span id="prevClose">$--</span></p>
+        <p><strong>Volume:</strong> <span id="volume">--</span></p>
+      </div>
+      <button id="refreshData">Refresh Data</button>
     </section>
 
     <section id="news" class="tab-content">
-      <!-- News content here -->
-      <h2>News</h2>
+      <h2>Financial News</h2>
+      <div class="news-controls">
+        <button id="refreshNews">Refresh News</button>
+        <select id="newsCategory">
+          <option value="general">General</option>
+          <option value="forex">Forex</option>
+          <option value="crypto">Crypto</option>
+          <option value="merger">Mergers</option>
+        </select>
+      </div>
       <ul id="newsList"><li>Loading news...</li></ul>
     </section>
 
     <section id="settings" class="tab-content">
-       <h2>Settings & Preferences</h2>
+      <h2>Settings & Preferences</h2>
+      
+      <div class="setting-group">
+        <label for="stockInput">Default Stock Symbol:</label>
+        <input type="text" id="stockInput" placeholder="e.g. AAPL, TSLA, GOOGL">
+      </div>
 
-  <label for="stockInput">Tracked Stock Symbol:</label>
-  <input type="text" id="stockInput" placeholder="e.g. TSLA">
-  <button id="updateStockButton">Update</button>
+      <div class="setting-group">
+        <label for="refreshInterval">Auto Refresh (seconds):</label>
+        <select id="refreshInterval">
+          <option value="0">Manual Only</option>
+          <option value="30">30 seconds</option>
+          <option value="60">1 minute</option>
+          <option value="300">5 minutes</option>
+          <option value="600">10 minutes</option>
+        </select>
+      </div>
 
-  <p style="margin-top: 10px; font-size: 0.9rem;">
-    Your preferred stock symbol will be saved for next time.
-  </p>
+      <div class="setting-group">
+        <label for="newsCount">Number of News Articles:</label>
+        <select id="newsCount">
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="15">15</option>
+          <option value="20">20</option>
+        </select>
+      </div>
+
+      <button id="saveSettings">Save Settings</button>
+      <button id="resetSettings">Reset to Defaults</button>
+      
+      <div id="settingsStatus" class="status-message"></div>
     </section>
   </div>
 
-  <script src="popup.js" defer></script>
+  <script src="popup_interaction.js"></script>
 </body>
 
 </html>

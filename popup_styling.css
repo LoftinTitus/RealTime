@@ -1,5 +1,4 @@
-/* popup.css */
-
+/* Popup Styling for Stock Market Extension */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -107,4 +106,181 @@ button#updateStockButton:hover, button#actionButton:hover {
 
 .tab-content.active {
   display: block;
+}
+
+/* Enhanced Market Data Styles */
+.stock-info {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  border-left: 4px solid #004080;
+}
+
+.stock-info p {
+  margin: 8px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stock-info strong {
+  color: #333;
+}
+
+#currentPrice {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #004080;
+}
+
+/* News Enhancements */
+.news-controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  align-items: center;
+}
+
+.news-controls select {
+  padding: 5px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.news-item {
+  padding: 10px 0;
+}
+
+.news-headline {
+  font-weight: bold;
+  color: #004080;
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.news-source {
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 6px;
+}
+
+.news-summary {
+  font-size: 0.85rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+/* Settings Styles */
+.setting-group {
+  margin-bottom: 20px;
+}
+
+.setting-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.setting-group input,
+.setting-group select {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.setting-group input[type="password"] {
+  font-family: monospace;
+}
+
+.setting-group small {
+  display: block;
+  margin-top: 5px;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.setting-group small a {
+  color: #004080;
+  text-decoration: none;
+}
+
+.setting-group small a:hover {
+  text-decoration: underline;
+}
+
+/* Status Messages */
+.status-message {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.status-message.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.status-message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.status-message.info {
+  background-color: #d1ecf1;
+  color: #0c5460;
+  border: 1px solid #bee5eb;
+}
+
+/* Buttons */
+#refreshData,
+#refreshNews,
+#saveSettings,
+#resetSettings {
+  background-color: #004080;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+#refreshData:hover,
+#refreshNews:hover,
+#saveSettings:hover {
+  background-color: #002952;
+}
+
+#resetSettings {
+  background-color: #dc3545;
+}
+
+#resetSettings:hover {
+  background-color: #c82333;
+}
+
+/* Responsive adjustments */
+@media (max-width: 350px) {
+  .news-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .news-controls button,
+  .news-controls select {
+    margin-bottom: 5px;
+  }
 }
