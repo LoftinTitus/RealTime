@@ -102,7 +102,7 @@ The extension respects these limits with reasonable refresh intervals.
 
 ## Recent Improvements
 
-### Completed ✅
+### Completed 
 - [X] Advanced settings panel with persistent storage
 - [X] Comprehensive market data display (volume, high/low, etc.)
 - [X] Enhanced news display with sources and timestamps
