@@ -1,9 +1,9 @@
 /* Popup Styling for Stock Market Extension */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
-  color: #222;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #e8f5e8 0%, #f0fff0 100%);
+  color: #2d5016;
   min-width: 300px;
   min-height: 350px;
 }
@@ -11,27 +11,35 @@ body {
 .popup-container {
   padding: 20px;
   box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  margin: 10px;
+  box-shadow: 0 8px 32px rgba(107, 187, 107, 0.2);
+  backdrop-filter: blur(4px);
+  animation: springIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 h1 {
   font-size: 1.8rem;
   margin-bottom: 15px;
   text-align: center;
-  color: #004080;
+  color: #4a7c59;
+  text-shadow: 0 2px 4px rgba(107, 187, 107, 0.3);
 }
 
 h2 {
   font-size: 1.2rem;
   margin-top: 20px;
   margin-bottom: 10px;
-  border-bottom: 2px solid #004080;
+  border-bottom: 2px solid #9ccc65;
   padding-bottom: 5px;
+  color: #4a7c59;
 }
 
 .stock-section p#stockPrice {
   font-size: 1.4rem;
   font-weight: bold;
-  color: #008000;
+  color: #66bb6a;
 }
 
 .news-section ul {
@@ -44,14 +52,18 @@ h2 {
 
 .news-section ul li {
   padding: 6px 0;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #c8e6c9;
   font-size: 0.9rem;
   cursor: pointer;
-  color: #004080;
+  color: #4a7c59;
+  transition: all 0.3s ease;
 }
 
 .news-section ul li:hover {
-  background-color: #e0e7ff;
+  background: linear-gradient(90deg, #e8f5e8, #c8e6c9);
+  transform: translateX(5px);
+  border-radius: 8px;
+  padding-left: 10px;
 }
 
 input#stockInput {
@@ -59,45 +71,76 @@ input#stockInput {
   padding: 6px 8px;
   font-size: 1rem;
   margin-right: 5px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
+  border: 2px solid #a5d6a7;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+}
+
+input#stockInput:focus {
+  border-color: #66bb6a;
+  box-shadow: 0 0 0 3px rgba(102, 187, 106, 0.2);
+  outline: none;
 }
 
 button#updateStockButton, button#actionButton {
-  background-color: #004080;
+  background: linear-gradient(135deg, #66bb6a, #81c784);
   color: white;
   border: none;
   padding: 7px 14px;
   font-size: 1rem;
-  border-radius: 3px;
+  border-radius: 12px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 187, 106, 0.3);
 }
 
 button#updateStockButton:hover, button#actionButton:hover {
-  background-color: #002952;
+  background: linear-gradient(135deg, #4caf50, #66bb6a);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 187, 106, 0.4);
 }
 
 .tabs {
   display: flex;
-  border-bottom: 1px solid #ccc;
-  margin-bottom: 10px;
+  border-bottom: 2px solid #c8e6c9;
+  margin-bottom: 15px;
+  border-radius: 15px 15px 0 0;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(107, 187, 107, 0.1);
 }
 
 .tab-btn {
   flex: 1;
-  padding: 10px;
-  background: #f0f0f0;
+  padding: 12px;
+  background: linear-gradient(135deg, #f1f8e9, #e8f5e8);
   border: none;
   cursor: pointer;
   font-weight: bold;
-  color: #004080;
-  transition: background-color 0.3s ease;
+  color: #4a7c59;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.tab-btn:hover {
+  background: linear-gradient(135deg, #e8f5e8, #dcedc8);
+  transform: translateY(-1px);
 }
 
 .tab-btn.active {
-  background: #004080;
+  background: linear-gradient(135deg, #66bb6a, #81c784);
   color: white;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tab-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #4caf50, #8bc34a);
 }
 
 .tab-content {
@@ -106,15 +149,18 @@ button#updateStockButton:hover, button#actionButton:hover {
 
 .tab-content.active {
   display: block;
+  animation: springIn 0.4s ease-out;
 }
 
 /* Enhanced Market Data Styles */
 .stock-info {
-  background: #f8f9fa;
+  background: linear-gradient(135deg, #f1f8e9, #e8f5e8);
   padding: 15px;
-  border-radius: 8px;
+  border-radius: 15px;
   margin-bottom: 15px;
-  border-left: 4px solid #004080;
+  border-left: 4px solid #66bb6a;
+  box-shadow: 0 4px 15px rgba(107, 187, 107, 0.2);
+  backdrop-filter: blur(8px);
 }
 
 .stock-info p {
@@ -125,13 +171,18 @@ button#updateStockButton:hover, button#actionButton:hover {
 }
 
 .stock-info strong {
-  color: #333;
+  color: #4a7c59;
 }
 
 #currentPrice {
   font-size: 1.2em;
   font-weight: bold;
-  color: #004080;
+  color: #2e7d32;
+  text-shadow: 0 1px 3px rgba(46, 125, 50, 0.3);
+  animation: price-pulse 2s ease-in-out infinite;
+  padding: 5px 10px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.8);
 }
 
 /* News Enhancements */
@@ -144,9 +195,18 @@ button#updateStockButton:hover, button#actionButton:hover {
 
 .news-controls select {
   padding: 5px 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border: 2px solid #a5d6a7;
+  border-radius: 10px;
   font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.9);
+  color: #4a7c59;
+  transition: all 0.3s ease;
+}
+
+.news-controls select:focus {
+  border-color: #66bb6a;
+  box-shadow: 0 0 0 3px rgba(102, 187, 106, 0.2);
+  outline: none;
 }
 
 .news-item {
@@ -155,43 +215,67 @@ button#updateStockButton:hover, button#actionButton:hover {
 
 .news-headline {
   font-weight: bold;
-  color: #004080;
+  color: #4a7c59;
   margin-bottom: 4px;
   line-height: 1.3;
 }
 
 .news-source {
   font-size: 0.8rem;
-  color: #666;
+  color: #81c784;
   margin-bottom: 6px;
 }
 
 .news-summary {
   font-size: 0.85rem;
-  color: #555;
+  color: #6a8f6f;
   line-height: 1.4;
 }
 
 /* Settings Styles */
 .setting-group {
   margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid #c8e6c9;
+  position: relative;
+}
+
+.setting-group::before {
+  content: '🌱';
+  position: absolute;
+  top: -5px;
+  right: 10px;
+  font-size: 16px;
+  opacity: 0.7;
 }
 
 .setting-group label {
   display: block;
   font-weight: bold;
-  margin-bottom: 5px;
-  color: #333;
+  margin-bottom: 8px;
+  color: #4a7c59;
 }
 
 .setting-group input,
 .setting-group select {
   width: 100%;
-  padding: 8px 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 10px 12px;
+  border: 2px solid #a5d6a7;
+  border-radius: 10px;
   font-size: 1rem;
   box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.9);
+  color: #2d5016;
+  transition: all 0.3s ease;
+}
+
+.setting-group input:focus,
+.setting-group select:focus {
+  border-color: #66bb6a;
+  box-shadow: 0 0 0 3px rgba(102, 187, 106, 0.2);
+  outline: none;
 }
 
 .setting-group input[type="password"] {
@@ -202,43 +286,49 @@ button#updateStockButton:hover, button#actionButton:hover {
   display: block;
   margin-top: 5px;
   font-size: 0.8rem;
-  color: #666;
+  color: #81c784;
 }
 
 .setting-group small a {
-  color: #004080;
+  color: #66bb6a;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .setting-group small a:hover {
+  color: #4caf50;
   text-decoration: underline;
 }
 
 /* Status Messages */
 .status-message {
   margin-top: 15px;
-  padding: 10px;
-  border-radius: 4px;
+  padding: 12px;
+  border-radius: 10px;
   font-size: 0.9rem;
   text-align: center;
+  font-weight: 500;
 }
 
 .status-message.success {
-  background-color: #d4edda;
-  color: #155724;
-  border: 1px solid #c3e6cb;
+  background: linear-gradient(135deg, #c8e6c9, #dcedc8);
+  color: #2e7d32;
+  border: 2px solid #a5d6a7;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);
 }
 
 .status-message.error {
-  background-color: #f8d7da;
-  color: #721c24;
-  border: 1px solid #f5c6cb;
+  background: linear-gradient(135deg, #ffcdd2, #ffebee);
+  color: #c62828;
+  border: 2px solid #ef9a9a;
+  box-shadow: 0 4px 15px rgba(244, 67, 54, 0.2);
 }
 
 .status-message.info {
-  background-color: #d1ecf1;
-  color: #0c5460;
-  border: 1px solid #bee5eb;
+  background: linear-gradient(135deg, #e1f5fe, #f0f9ff);
+  color: #0277bd;
+  border: 2px solid #81d4fa;
+  box-shadow: 0 4px 15px rgba(3, 169, 244, 0.2);
 }
 
 /* Buttons */
@@ -246,30 +336,90 @@ button#updateStockButton:hover, button#actionButton:hover {
 #refreshNews,
 #saveSettings,
 #resetSettings {
-  background-color: #004080;
+  background: linear-gradient(135deg, #66bb6a, #81c784);
   color: white;
   border: none;
-  padding: 8px 16px;
+  padding: 10px 18px;
   font-size: 0.9rem;
-  border-radius: 4px;
+  border-radius: 12px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
   margin-right: 10px;
   margin-bottom: 10px;
+  box-shadow: 0 4px 15px rgba(102, 187, 106, 0.3);
+  font-weight: 600;
 }
 
 #refreshData:hover,
 #refreshNews:hover,
 #saveSettings:hover {
-  background-color: #002952;
+  background: linear-gradient(135deg, #4caf50, #66bb6a);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 187, 106, 0.4);
 }
 
 #resetSettings {
-  background-color: #dc3545;
+  background: linear-gradient(135deg, #ef5350, #f48fb1);
+  box-shadow: 0 4px 15px rgba(239, 83, 80, 0.3);
 }
 
 #resetSettings:hover {
-  background-color: #c82333;
+  background: linear-gradient(135deg, #e53935, #ec407a);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(239, 83, 80, 0.4);
+}
+
+/* Enhanced scrollbar for news */
+.news-section ul::-webkit-scrollbar {
+  width: 6px;
+}
+
+.news-section ul::-webkit-scrollbar-track {
+  background: #f1f8e9;
+  border-radius: 10px;
+}
+
+.news-section ul::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #81c784, #a5d6a7);
+  border-radius: 10px;
+}
+
+.news-section ul::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #66bb6a, #81c784);
+}
+
+/* Spring animations and final touches */
+@keyframes springIn {
+  0% { 
+    transform: scale(0.8) rotate(-5deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05) rotate(2deg);
+  }
+  100% { 
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes gentle-bounce {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-3px); }
+}
+
+.news-item:hover {
+  animation: gentle-bounce 0.6s ease-in-out;
+}
+
+/* Add a subtle pulse to the current price */
+@keyframes price-pulse {
+  0%, 100% { 
+    box-shadow: 0 0 0 0 rgba(102, 187, 106, 0.4);
+  }
+  50% { 
+    box-shadow: 0 0 0 8px rgba(102, 187, 106, 0);
+  }
 }
 
 /* Responsive adjustments */
