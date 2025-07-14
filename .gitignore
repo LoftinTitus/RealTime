@@ -1,0 +1,23 @@
+# API Keys and sensitive configuration
+config.js
+.env
+*.key
+
+# Development files
+.DS_Store
+*.log
+node_modules/
+
+# Chrome extension artifacts
+*.crx
+*.pem
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+*.tmp
+*.temp

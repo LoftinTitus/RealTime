@@ -23,7 +23,7 @@ A comprehensive Chrome extension that provides real-time stock prices and financ
 - News source and summary previews
 
 ### Settings & Preferences
-- Built-in Finnhub API key (no setup required)
+- Secure API key storage (users provide their own Finnhub API key)
 - Configurable default stock symbol
 - Auto-refresh intervals (30 seconds to 10 minutes, or manual only)
 - Customizable number of news articles (5-20)
@@ -57,14 +57,18 @@ Create the following icon files in the `icons/` directory:
 3. Click "Load unpacked" and select this folder
 4. The extension should now appear in your Chrome toolbar
 
-### 3. Configure the Extension
+### 3. Get a Finnhub API Key
+1. Go to [Finnhub.io](https://finnhub.io/) and sign up for a free account
+2. Navigate to your dashboard and copy your API key
+3. Keep this key secure - you'll need it for the extension setup
+
+### 4. Configure the Extension
 1. Click the extension icon in your toolbar
 2. Go to the "Settings" tab
-3. Set your preferred stock symbol (e.g., AAPL, TSLA, GOOGL)
-4. Configure other preferences as desired
-5. Click "Save Settings"
-
-*Note: The Finnhub API key is built into the extension, so no API setup is required.*
+3. Enter your Finnhub API key in the "API Key" field
+4. Set your preferred stock symbol (e.g., AAPL, TSLA, GOOGL)
+5. Configure other preferences as desired
+6. Click "Save Settings"
 
 ---
 
@@ -72,7 +76,7 @@ Create the following icon files in the `icons/` directory:
 
 - **Market Data Tab**: View comprehensive real-time stock information
 - **News Tab**: Browse financial news with category filters and refresh options
-- **Settings Tab**: Configure API key, stock symbol, refresh rates, and preferences
+- **Settings Tab**: Configure your Finnhub API key, stock symbol, refresh rates, and preferences
 
 ---
 

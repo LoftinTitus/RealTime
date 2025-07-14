@@ -1,11 +1,9 @@
-// Finnhub API Key
-const FINNHUB_API_KEY = 'd1jtvg1r01ql1h39esh0d1jtvg1r01ql1h39eshg';
-
 // Default settings
 const DEFAULT_SETTINGS = {
   stockSymbol: 'AAPL',
   refreshInterval: 0,
-  newsCount: 10
+  newsCount: 10,
+  apiKey: '' // Finnhub API key - users need to provide their own
 };
 
 let currentSettings = { ...DEFAULT_SETTINGS };
@@ -52,6 +50,7 @@ function updateSettingsUI() {
   document.getElementById('stockInput').value = currentSettings.stockSymbol;
   document.getElementById('refreshInterval').value = currentSettings.refreshInterval;
   document.getElementById('newsCount').value = currentSettings.newsCount;
+  document.getElementById('apiKeyInput').value = currentSettings.apiKey;
 }
 
 // Setup tab navigation
@@ -90,9 +89,15 @@ async function handleSaveSettings() {
   currentSettings.stockSymbol = document.getElementById('stockInput').value.trim().toUpperCase();
   currentSettings.refreshInterval = parseInt(document.getElementById('refreshInterval').value);
   currentSettings.newsCount = parseInt(document.getElementById('newsCount').value);
+  currentSettings.apiKey = document.getElementById('apiKeyInput').value.trim();
   
   if (!currentSettings.stockSymbol) {
     showStatus('Please enter a valid stock symbol!', 'error');
+    return;
+  }
+  
+  if (!currentSettings.apiKey) {
+    showStatus('Please enter your Finnhub API key!', 'error');
     return;
   }
   
@@ -122,14 +127,36 @@ function showStatus(message, type = 'info') {
 
 // Initialize data loading
 async function initializeData() {
+  if (!currentSettings.apiKey) {
+    showApiKeySetupMessage();
+    return;
+  }
+  
   await fetchAndDisplayData();
   setupAutoRefresh();
 }
 
-// Show message when no API key is set - removed since we have hardcoded key
+// Show API key setup message
+function showApiKeySetupMessage() {
+  showMarketDataError('Please set up your Finnhub API key in Settings');
+  document.getElementById('newsList').innerHTML = `
+    <li style="text-align: center; padding: 20px;">
+      <div style="color: #666;">
+        <strong>API Key Required</strong><br>
+        Please go to Settings and enter your Finnhub API key to view data.<br><br>
+        <a href="https://finnhub.io/" target="_blank" style="color: #007bff;">Get a free API key from Finnhub →</a>
+      </div>
+    </li>
+  `;
+}
 
 // Fetch and display all data
 async function fetchAndDisplayData() {
+  if (!currentSettings.apiKey) {
+    showApiKeySetupMessage();
+    return;
+  }
+  
   await Promise.all([
     fetchStockPrice(currentSettings.stockSymbol),
     fetchFinancialNews()
@@ -138,7 +165,7 @@ async function fetchAndDisplayData() {
 
 // Fetch stock price and market data
 async function fetchStockPrice(symbol) {
-  const url = `https://finnhub.io/api/v1/quote?symbol=${symbol}&token=${FINNHUB_API_KEY}`;
+  const url = `https://finnhub.io/api/v1/quote?symbol=${symbol}&token=${currentSettings.apiKey}`;
   
   try {
     const response = await fetch(url);
@@ -146,6 +173,8 @@ async function fetchStockPrice(symbol) {
 
     if (data && data.c !== undefined) {
       updateMarketDataUI(symbol, data);
+    } else if (data.error) {
+      showMarketDataError('Invalid API key or quota exceeded');
     } else {
       showMarketDataError('Stock data unavailable. Check symbol.');
     }
@@ -198,9 +227,9 @@ async function fetchFinancialNews() {
   
   let url;
   if (category === 'general') {
-    url = `https://finnhub.io/api/v1/company-news?symbol=${currentSettings.stockSymbol}&from=${fromStr}&to=${toStr}&token=${FINNHUB_API_KEY}`;
+    url = `https://finnhub.io/api/v1/company-news?symbol=${currentSettings.stockSymbol}&from=${fromStr}&to=${toStr}&token=${currentSettings.apiKey}`;
   } else {
-    url = `https://finnhub.io/api/v1/news?category=${category}&token=${FINNHUB_API_KEY}`;
+    url = `https://finnhub.io/api/v1/news?category=${category}&token=${currentSettings.apiKey}`;
   }
 
   try {
